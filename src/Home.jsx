@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";  // Import Link
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -34,10 +36,18 @@ const Home = () => {
     cursor: 'pointer',
   });
 
-  // Style for the corner borders
+  const iconStyle = (isHovered) => ({
+    color: isHovered ? '#e0e0e0' : 'lightgrey',
+    fontSize: '2rem',
+    marginLeft: '1rem',
+    transition: 'transform 0.3s, color 0.3s',
+    transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+    cursor: 'pointer',
+  });
+
   const cornerBorderStyle = {
     position: 'absolute',
-    borderColor: '#f8f9fa',  // Same light color as text
+    borderColor: '#ff5722',
     borderStyle: 'solid',
     zIndex: 10,
   };
@@ -45,28 +55,25 @@ const Home = () => {
   const topLeftBorder = {
     top: 0,
     left: 0,
-    width: '100px',
-    height: '100px',
-    borderWidth: '10px 0 0 10px',  // Border on the left and top
+    width: '140px',
+    height: '140px',
+    borderWidth: '15px 0 0 15px',
   };
 
   const bottomRightBorder = {
     bottom: 0,
     right: 0,
-    width: '100px',
-    height: '100px',
-    borderWidth: '0 10px 10px 0',  // Border on the right and bottom
+    width: '120px',
+    height: '120px',
+    borderWidth: '0 15px 15px 0',
   };
 
   return (
     <Container fluid style={gradientBackground} className="d-flex">
-      {/* Top-left border */}
       <div style={{ ...cornerBorderStyle, ...topLeftBorder }}></div>
-      {/* Bottom-right border */}
       <div style={{ ...cornerBorderStyle, ...bottomRightBorder }}></div>
 
       <Row className="w-100 align-items-center">
-        {/* Left Column: Welcome Message */}
         <Col md={6} className="p-5">
           <section className="text-left">
             <h1 style={welcomeTextStyle}>Welcome</h1>
@@ -76,8 +83,7 @@ const Home = () => {
           </section>
         </Col>
 
-        {/* Right Column: Projects */}
-        <Col md={6} className="p-5">
+        <Col md={5} className="p-5">
           <section>
             <h2 className="text-center mb-4">Projects</h2>
             <ListGroup variant="flush" className="text-center">
@@ -98,6 +104,30 @@ const Home = () => {
           </section>
         </Col>
       </Row>
+
+      {/* Icons Section */}
+      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+        <a
+          href="https://github.com/ChristopherFiore"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'github')}
+          onMouseEnter={() => setHoveredIcon('github')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://linkedin.com/in/your-username"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'linkedin')}
+          onMouseEnter={() => setHoveredIcon('linkedin')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaLinkedin />
+        </a>
+      </div>
     </Container>
   );
 };
