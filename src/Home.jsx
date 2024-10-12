@@ -32,7 +32,6 @@ const Home = () => {
 
   const paragraphStyle = {
     fontSize: '1.25rem',
-    marginBottom: '20px', // Adjusted margin to fit the image
   };
 
   const profilePicStyle = {
@@ -119,9 +118,10 @@ const Home = () => {
       <Row className="w-100 justify-content-center">
         <Col md={8}>
           <section>
-            <h1 style={welcomeTextStyle}>Welcome</h1>
+            <p style={paragraphStyle}>Hi! I'm</p>
+            <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
-              Hi, I'm Christopher Fiore, a passionate software developer. Here's some projects I've been working on.
+              A passionate software developer with interest in front end development and game design. Here's some projects I've been working on.
             </p>
             {/* Profile Picture */}
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
@@ -129,16 +129,9 @@ const Home = () => {
         </Col>
       </Row>
 
-      {/* Projects Title */}
-      <Row className="w-100 justify-content-center">
-        <Col md={8} className="text-center mb-4">
-          <h2>Projects</h2>
-        </Col>
-      </Row>
-
       {/* Project Cards in a 2x2 Grid */}
       <Row className="w-100 justify-content-center">
-        {['TransLink Live Service App', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!', 'Another'].map((project, index) => (
+        {['TransLink Live Service Tool', 'Python 3D Voxel Engine (TODO)', 'Computer Retail Website', 'This Website!', 'Another (TODO)'].map((project, index) => (
           <Col sm={6} md={6} lg={4} key={index} className="mb-4">
             {/* Use a clickable Card component */}
             <Card

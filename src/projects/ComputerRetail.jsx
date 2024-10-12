@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 import computerRetailVideo from '../assets/retailComputerVideo.mp4';
 
 const ComputerRetail = () => {
@@ -22,6 +22,11 @@ const ComputerRetail = () => {
     fontSize: '1.5rem',
   };
 
+  const linkStyle = {
+    color: '#007bff', // Bootstrap's default link color
+    textDecoration: 'underline',
+  };
+
   const windowStyle = {
     border: '2px solid #ffffff',
     borderRadius: '15px',
@@ -39,11 +44,11 @@ const ComputerRetail = () => {
     top: '20px',
     left: '40px',
     cursor: 'pointer',
-    color: isHovered ? '#ff5722' : 'white', // Change color on hover
+    color: isHovered ? '#ff5722' : 'white',
     textDecoration: 'none',
-    transform: isHovered ? 'scale(1.2)' : 'scale(1)', // Scale effect on hover
-    transformOrigin: 'top left', // Ensure scaling occurs from the top-left corner
-    transition: 'transform 0.3s, color 0.3s', // Smooth transition
+    transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+    transformOrigin: 'top left',
+    transition: 'transform 0.3s, color 0.3s',
   };
 
   return (
@@ -52,8 +57,8 @@ const ComputerRetail = () => {
       <Link
         to="/"
         style={backButtonStyle}
-        onMouseEnter={() => setIsHovered(true)} // Handle hover in
-        onMouseLeave={() => setIsHovered(false)} // Handle hover out
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         &larr;
       </Link>
@@ -62,8 +67,12 @@ const ComputerRetail = () => {
         <Col>
           <h1 style={titleStyle}>Computer Retail Website</h1>
           <p style={descriptionStyle}>
-            Welcome to my personal website! Here you'll find information about my projects, skills, and experiences.
-            Feel free to explore and reach out if you have any questions!
+            Welcome to my creation of a retail computer website! Through my personal interest of computers and my professional experience
+            of creating websites, I decided to make my own computer retail website. Feel free to navigate to my{' '}
+            <a href="https://github.com/ChristopherFiore/RetailComputerWebsite" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+              GitHub
+            </a>{' '}
+            for a look at the source code.
           </p>
         </Col>
       </Row>
@@ -83,10 +92,10 @@ const ComputerRetail = () => {
         <Col>
           <h2>Features</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li>Real-time updates on projects</li>
+            <li>Smooth and responsive navigation</li>
             <li>User-friendly interface</li>
-            <li>Portfolio of my work</li>
-            <li>Contact information</li>
+            <li>Javascript functionality for forms and adding items to cart</li>
+            <li>Repsonsiveness through various HTML and CSS features. </li>
           </ul>
         </Col>
       </Row>
@@ -94,7 +103,7 @@ const ComputerRetail = () => {
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>React, Node.js, JavaScript</p>
+          <p>JavaScript, HTML, CSS</p>
         </Col>
       </Row>
     </Container>

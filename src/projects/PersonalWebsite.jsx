@@ -62,8 +62,9 @@ const PersonalWebsite = () => {
         <Col>
           <h1 style={titleStyle}>Personal Website</h1>
           <p style={descriptionStyle}>
-            Welcome to my personal website! Here you'll find information about my projects, skills, and experiences.
-            Feel free to explore and reach out if you have any questions!
+            Welcome to the website you are currently using! Here you'll find information about my projects, skills, and experiences.
+            I created this portfolio website of my work to show off my front end development skills and also as a way for people and employers
+            to engage with my work and talents.
           </p>
         </Col>
       </Row>
@@ -81,7 +82,6 @@ const PersonalWebsite = () => {
           <h2>Features</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li>Real-time updates on projects</li>
-            <li>User-friendly interface</li>
             <li>Portfolio of my work</li>
             <li>Contact information</li>
           </ul>

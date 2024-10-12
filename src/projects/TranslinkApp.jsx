@@ -58,10 +58,10 @@ const TranslinkApp = () => {
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
-          <h1 style={titleStyle}>TranslinkApp</h1>
+          <h1 style={titleStyle}>Translink Live Service Tool</h1>
           <p style={descriptionStyle}>
-            TranslinkApp is a project that helps users plan their journeys using public transportation efficiently.
-            With real-time updates and user-friendly interfaces, it enhances the travel experience.
+            Translink live service tool is a project that helps users plan their journeys using public transportation efficiently.
+            With real-time updates and user-friendly interfaces, it enhances the travel experience for bus lines across QLD.
           </p>
         </Col>
       </Row>
@@ -69,7 +69,6 @@ const TranslinkApp = () => {
       <Row className="text-center mb-4">
         <Col>
           <div style={windowStyle}>
-            <h2>Project Display</h2>
             <video width="100%" controls>
               <source src="your-video-url.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -83,9 +82,9 @@ const TranslinkApp = () => {
           <h2>Features</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li>Real-time transit updates</li>
-            <li>User-friendly interface</li>
             <li>Route planning</li>
-            <li>Integration with multiple transport services</li>
+            <li>API Integration</li>
+            <li>Integration with live transport data</li>
           </ul>
         </Col>
       </Row>
@@ -93,7 +92,7 @@ const TranslinkApp = () => {
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>React, Node.js, Javascript</p>
+          <p>Node.js, Javascript</p>
         </Col>
       </Row>
     </Container>
