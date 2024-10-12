@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; // Import download icon
 import profilePic from './assets/profilePic.jpg'; // Update with the correct path to your image
+import resume from './assets/ChristopherFioreResume.pdf';
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [hoveredResume, setHoveredResume] = useState(false); // New state for resume hover
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -60,6 +62,17 @@ const Home = () => {
     cursor: 'pointer',
   });
 
+  const resumeStyle = {
+    color: 'lightgrey',
+    fontSize: '2rem', // Increased font size for visibility
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: '1rem',
+    transition: 'transform 0.3s, color 0.3s',
+    textDecoration: 'none',
+    transform: hoveredResume ? 'scale(1.1)' : 'scale(1)', // Hover scale effect
+  };
+
   const cornerBorderStyle = {
     position: 'absolute',
     borderStyle: 'solid',
@@ -87,6 +100,20 @@ const Home = () => {
       {/* Keep the border elements */}
       <div style={{ ...cornerBorderStyle, ...topLeftBorder }}></div>
       <div style={{ ...cornerBorderStyle, ...bottomRightBorder }}></div>
+
+      {/* Resume Link in the center */}
+      <div style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+        <a
+          href={resume} // Update this with your actual resume path
+          download
+          style={resumeStyle}
+          onMouseEnter={() => setHoveredResume(true)} // Set hover state on enter
+          onMouseLeave={() => setHoveredResume(false)} // Reset hover state on leave
+        >
+          <FaDownload style={{ marginRight: '0.5rem' }} />
+          Resume
+        </a>
+      </div>
 
       {/* Main content, centrally aligned */}
       <Row className="w-100 justify-content-center">
@@ -133,7 +160,7 @@ const Home = () => {
       </Row>
 
       {/* Icons Section */}
-      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+      <div style={{ position: 'absolute', top: '2%', right: '2%' }}>
         <a
           href="https://github.com/ChristopherFiore"
           target="_blank"

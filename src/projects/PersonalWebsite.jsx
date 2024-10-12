@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'; // Import Link
+import websiteImage from '../assets/personalWebsite.png';
 
-const TranslinkApp = () => {
+const PersonalWebsite = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const gradientBackground = {
@@ -48,7 +49,8 @@ const TranslinkApp = () => {
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
       {/* Back Button */}
-      <Link to={'/'}
+      <Link
+        to="/"
         style={backButtonStyle}
         onMouseEnter={() => setIsHovered(true)} // Handle hover in
         onMouseLeave={() => setIsHovered(false)} // Handle hover out
@@ -58,34 +60,30 @@ const TranslinkApp = () => {
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
-          <h1 style={titleStyle}>TranslinkApp</h1>
+          <h1 style={titleStyle}>Personal Website</h1>
           <p style={descriptionStyle}>
-            TranslinkApp is a project that helps users plan their journeys using public transportation efficiently.
-            With real-time updates and user-friendly interfaces, it enhances the travel experience.
+            Welcome to my personal website! Here you'll find information about my projects, skills, and experiences.
+            Feel free to explore and reach out if you have any questions!
           </p>
         </Col>
       </Row>
 
       <Row className="text-center mb-4">
-        <Col>
-          <div style={windowStyle}>
-            <h2>Project Display</h2>
-            <video width="100%" controls>
-              <source src="your-video-url.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </Col>
+          <Col>
+              <div style={windowStyle}>
+                  <img src={websiteImage} alt="Personal Website Preview" width="100%" />
+              </div>
+          </Col>
       </Row>
 
       <Row className="text-center">
         <Col>
           <h2>Features</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li>Real-time transit updates</li>
+            <li>Real-time updates on projects</li>
             <li>User-friendly interface</li>
-            <li>Route planning</li>
-            <li>Integration with multiple transport services</li>
+            <li>Portfolio of my work</li>
+            <li>Contact information</li>
           </ul>
         </Col>
       </Row>
@@ -93,11 +91,11 @@ const TranslinkApp = () => {
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>React, Node.js, Javascript</p>
+          <p>React, Node.js, JavaScript</p>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default TranslinkApp;
+export default PersonalWebsite;
