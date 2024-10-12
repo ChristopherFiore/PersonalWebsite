@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const TranslinkApp = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,21 +45,16 @@ const TranslinkApp = () => {
     transition: 'transform 0.3s, color 0.3s', // Smooth transition
   };
 
-  const handleBackClick = () => {
-    window.location.href = '/';
-  };
-
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
       {/* Back Button */}
-      <a
+      <Link to={'/'}
         style={backButtonStyle}
-        onClick={handleBackClick}
         onMouseEnter={() => setIsHovered(true)} // Handle hover in
         onMouseLeave={() => setIsHovered(false)} // Handle hover out
       >
         &larr;
-      </a>
+      </Link>
 
       <Row className="text-center mb-4" style={{ marginTop: '50px' }}>
         <Col>
