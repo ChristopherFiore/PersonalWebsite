@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; // Import Link
-import computerRetailVideo from '../assets/retailComputerVideo.mp4';
+import voxelVideo from '../assets/voxelEngineVideo.mp4';
 
 const VoxelEngine = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,6 +30,11 @@ const VoxelEngine = () => {
     maxWidth: '1000px',
     margin: '20px auto',
     backgroundColor: '#333333',
+  };
+
+  const linkStyle = {
+    color: '#007bff', // Bootstrap's default link color
+    textDecoration: 'underline',
   };
 
   const backButtonStyle = {
@@ -62,8 +67,11 @@ const VoxelEngine = () => {
         <Col>
           <h1 style={titleStyle}>Python 3D Voxel Engine</h1>
           <p style={descriptionStyle}>
-            Welcome to my personal website! Here you'll find information about my projects, skills, and experiences.
-            Feel free to explore and reach out if you have any questions!
+            Through my interest of how low level 3D graphics are constructed I made a 3D python voxel engine.
+            Feel free to check out the source code on{' '}
+            <a href="https://github.com/ChristopherFiore/PythonVoxelEngine" target="_blank" rel="noopener noreferrer" style={linkStyle}> 
+            Github
+            </a>{'.'}
           </p>
         </Col>
       </Row>
@@ -72,7 +80,7 @@ const VoxelEngine = () => {
         <Col>
           <div style={windowStyle}>
             <video width="100%" autoPlay loop muted>
-              <source src={computerRetailVideo} type="video/mp4" />
+              <source src={voxelVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -83,10 +91,9 @@ const VoxelEngine = () => {
         <Col>
           <h2>Features</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li>Real-time updates on projects</li>
-            <li>User-friendly interface</li>
-            <li>Portfolio of my work</li>
-            <li>Contact information</li>
+            <li>Rendering Techniques</li>
+            <li>Coloured Voxels with static lighting</li>
+            <li>Explorable environment</li>
           </ul>
         </Col>
       </Row>
@@ -94,7 +101,7 @@ const VoxelEngine = () => {
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>React, Node.js, JavaScript</p>
+          <p>Python, OpenGL, Pygame, Numpy</p>
         </Col>
       </Row>
     </Container>

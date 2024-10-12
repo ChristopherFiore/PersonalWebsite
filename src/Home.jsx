@@ -131,7 +131,7 @@ const Home = () => {
 
       {/* Project Cards in a 2x2 Grid */}
       <Row className="w-100 justify-content-center">
-        {['TransLink Live Service Tool', 'Python 3D Voxel Engine (TODO)', 'Computer Retail Website', 'This Website!', 'Another (TODO)'].map((project, index) => (
+        {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!', 'Another (TODO)'].map((project, index) => (
           <Col sm={6} md={6} lg={4} key={index} className="mb-4">
             {/* Use a clickable Card component */}
             <Card
