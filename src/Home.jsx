@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import profilePic from './assets/profilePic.jpg'; // Update with the correct path to your image
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -12,25 +13,39 @@ const Home = () => {
     minHeight: '100vh',
     color: 'white',
     position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    paddingTop: '40px',
+    paddingBottom: '40px',
   };
 
   const welcomeTextStyle = {
     fontSize: '4rem',
     fontWeight: 'bold',
+    marginBottom: '20px',
   };
 
   const paragraphStyle = {
     fontSize: '1.25rem',
+    marginBottom: '20px', // Adjusted margin to fit the image
   };
 
-  const projectItemStyle = (isHovered) => ({
-    backgroundColor: 'transparent',
+  const profilePicStyle = {
+    width: '200px', // Adjust size as needed
+    height: '200px', // Adjust size as needed
+    borderRadius: '50%', // This makes the image circular
+    objectFit: 'cover', // Ensures the image covers the area without distortion
+    marginBottom: '30px', // Space below the image
+  };
+
+  const cardStyle = (isHovered) => ({
+    backgroundColor: '#1c1c1c',
     borderColor: '#555',
     fontSize: '1.25rem',
-    color: isHovered ? '#e0e0e0' : '#f8f9fa',
-    textDecoration: 'underline',
-    padding: '1rem',
-    marginBottom: '1.5rem',
+    color: '#f8f9fa',
     transition: 'transform 0.3s, background-color 0.3s',
     transform: isHovered ? 'scale(1.05)' : 'scale(1)',
     cursor: 'pointer',
@@ -47,7 +62,6 @@ const Home = () => {
 
   const cornerBorderStyle = {
     position: 'absolute',
-    borderColor: '#ff5722',
     borderStyle: 'solid',
     zIndex: 10,
   };
@@ -69,40 +83,53 @@ const Home = () => {
   };
 
   return (
-    <Container fluid style={gradientBackground} className="d-flex">
+    <Container fluid style={gradientBackground}>
+      {/* Keep the border elements */}
       <div style={{ ...cornerBorderStyle, ...topLeftBorder }}></div>
       <div style={{ ...cornerBorderStyle, ...bottomRightBorder }}></div>
 
-      <Row className="w-100 align-items-center">
-        <Col md={6} className="p-5">
-          <section className="text-left">
+      {/* Main content, centrally aligned */}
+      <Row className="w-100 justify-content-center">
+        <Col md={8}>
+          <section>
             <h1 style={welcomeTextStyle}>Welcome</h1>
             <p style={paragraphStyle}>
-              Hi, I'm Chris, a passionate software developer. Here's a list of projects I've been working on.
+              Hi, I'm Christopher Fiore, a passionate software developer. Here's some projects I've been working on.
             </p>
+            {/* Profile Picture */}
+            <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
           </section>
         </Col>
+      </Row>
 
-        <Col md={5} className="p-5">
-          <section>
-            <h2 className="text-center mb-4">Projects</h2>
-            <ListGroup variant="flush" className="text-center">
-              {['Project 1 - A brief description of what it does.', 'Project 2 - A brief description of what it does.', 'Project 3 - A brief description of what it does.'].map((project, index) => (
-                <ListGroup.Item
-                  key={index}
-                  style={projectItemStyle(hoveredItem === index)}
-                  className="border-light"
-                  onMouseEnter={() => setHoveredItem(index)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                >
-                  <Link to={`/project${index + 1}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                    {project}
-                  </Link>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </section>
+      {/* Projects Title */}
+      <Row className="w-100 justify-content-center">
+        <Col md={8} className="text-center mb-4">
+          <h2>Projects</h2>
         </Col>
+      </Row>
+
+      {/* Project Cards in a 2x2 Grid */}
+      <Row className="w-100 justify-content-center">
+        {['TransLink Live Service App', 'Python 3D Voxel Engine', 'Computer Retail Website', 'Something else'].map((project, index) => (
+          <Col sm={6} md={6} lg={4} key={index} className="mb-4">
+            {/* Use a clickable Card component */}
+            <Card
+              as={Link}  // This is key: it makes the entire Card behave as a Link
+              to={`/project${index + 1}`}
+              style={cardStyle(hoveredItem === index)}
+              onMouseEnter={() => setHoveredItem(index)}
+              onMouseLeave={() => setHoveredItem(null)}
+              className="h-100 text-decoration-none text-light"  // Ensures the text styling is correct for Links
+            >
+              <Card.Body>
+                <Card.Title>{project}</Card.Title>
+                <Card.Text>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
 
       {/* Icons Section */}
@@ -118,7 +145,7 @@ const Home = () => {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com/in/your-username"
+          href="https://www.linkedin.com/in/christopher-fiore-8b64702b5/"
           target="_blank"
           rel="noopener noreferrer"
           style={iconStyle(hoveredIcon === 'linkedin')}
