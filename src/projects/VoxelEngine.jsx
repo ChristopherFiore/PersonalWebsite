@@ -60,7 +60,7 @@ const VoxelEngine = () => {
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
-          <h1 style={titleStyle}>Computer Retail Website</h1>
+          <h1 style={titleStyle}>Python 3D Voxel Engine</h1>
           <p style={descriptionStyle}>
             Welcome to my personal website! Here you'll find information about my projects, skills, and experiences.
             Feel free to explore and reach out if you have any questions!
