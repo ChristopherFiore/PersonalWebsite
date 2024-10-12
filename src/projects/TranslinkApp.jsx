@@ -35,8 +35,8 @@ const TranslinkApp = () => {
     fontSize: '6rem',
     fontWeight: 'bold',
     position: 'absolute',
-    top: '20px',
-    left: '40px',
+    top: '3%',
+    left: '3%',
     cursor: 'pointer',
     color: isHovered ? '#ff5722' : 'white', // Change color on hover
     textDecoration: 'none',

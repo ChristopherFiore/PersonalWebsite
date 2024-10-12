@@ -27,7 +27,7 @@ const Home = () => {
   const welcomeTextStyle = {
     fontSize: '4rem',
     fontWeight: 'bold',
-    marginBottom: '20px',
+    marginBottom: '2%',
   };
 
   const paragraphStyle = {
@@ -118,10 +118,10 @@ const Home = () => {
       <Row className="w-100 justify-content-center">
         <Col md={8}>
           <section>
-            <p style={paragraphStyle}>Hi! I'm</p>
+            <p style={{marginTop: '3%'}}>Hi! I'm</p>
             <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
-              A passionate software developer with interest in front end development and game design. Here's some projects I've been working on.
+              A passionate software developer with an interest in front end development and game design. Here's some projects I've been working on.
             </p>
             {/* Profile Picture */}
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
