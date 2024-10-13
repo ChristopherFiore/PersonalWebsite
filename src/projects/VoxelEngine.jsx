@@ -67,7 +67,7 @@ const VoxelEngine = () => {
         <Col>
           <h1 style={titleStyle}>Python 3D Voxel Engine</h1>
           <p style={descriptionStyle}>
-            Through my interest of how low level 3D graphics are constructed I made a 3D python voxel engine.
+            Through my interest of how low level 3D graphics are constructed, I made a 3D python voxel engine.
             Feel free to check out the source code on{' '}
             <a href="https://github.com/ChristopherFiore/PythonVoxelEngine" target="_blank" rel="noopener noreferrer" style={linkStyle}> 
             Github

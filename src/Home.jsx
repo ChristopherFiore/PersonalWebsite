@@ -121,7 +121,7 @@ const Home = () => {
             <p style={{marginTop: '3%'}}>Hi! I'm</p>
             <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
-              A passionate software developer with an interest in front end development and game design. Here's some projects I've been working on.
+              A passionate software developer with an interest in front end development, service software and game design. Here's some projects I've been working on.
             </p>
             {/* Profile Picture */}
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
@@ -131,7 +131,7 @@ const Home = () => {
 
       {/* Project Cards in a 2x2 Grid */}
       <Row className="w-100 justify-content-center">
-        {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!', 'Another (TODO)'].map((project, index) => (
+        {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!'].map((project, index) => (
           <Col sm={6} md={6} lg={4} key={index} className="mb-4">
             {/* Use a clickable Card component */}
             <Card

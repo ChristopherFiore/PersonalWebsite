@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import translinkVideo from "../assets/translinkVideo.mp4";
 
 const TranslinkApp = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -69,8 +70,8 @@ const TranslinkApp = () => {
       <Row className="text-center mb-4">
         <Col>
           <div style={windowStyle}>
-            <video width="100%" controls>
-              <source src="your-video-url.mp4" type="video/mp4" />
+            <video width="100%" autoPlay loop muted>
+              <source src={translinkVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
