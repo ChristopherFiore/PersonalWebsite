@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; // Import download icon
-import profilePic from './assets/profilePic.jpg'; // Update with the correct path to your image
+import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
+import profilePic from './assets/profilePic.jpg'; 
 import resume from './assets/ChristopherFioreResume.pdf';
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredIcon, setHoveredIcon] = useState(null);
-  const [hoveredResume, setHoveredResume] = useState(false); // New state for resume hover
+  const [hoveredResume, setHoveredResume] = useState(false); 
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -20,8 +20,7 @@ const Home = () => {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    paddingTop: '40px',
-    paddingBottom: '40px',
+    padding: '40px 20px', // Added horizontal padding
   };
 
   const welcomeTextStyle = {
@@ -35,11 +34,11 @@ const Home = () => {
   };
 
   const profilePicStyle = {
-    width: '200px', // Adjust size as needed
-    height: '200px', // Adjust size as needed
-    borderRadius: '50%', // This makes the image circular
-    objectFit: 'cover', // Ensures the image covers the area without distortion
-    marginBottom: '30px', // Space below the image
+    width: '250px', // Adjust size for responsiveness
+    height: '250px', 
+    borderRadius: '50%',
+    objectFit: 'cover',
+    marginBottom: '25px',
   };
 
   const cardStyle = (isHovered) => ({
@@ -63,13 +62,13 @@ const Home = () => {
 
   const resumeStyle = {
     color: 'lightgrey',
-    fontSize: '2rem', // Increased font size for visibility
+    fontSize: '1.5rem', // Adjusted for better responsiveness
     display: 'flex',
     alignItems: 'center',
     marginRight: '1rem',
     transition: 'transform 0.3s, color 0.3s',
     textDecoration: 'none',
-    transform: hoveredResume ? 'scale(1.1)' : 'scale(1)', // Hover scale effect
+    transform: hoveredResume ? 'scale(1.1)' : 'scale(1)', 
   };
 
   const cornerBorderStyle = {
@@ -96,51 +95,45 @@ const Home = () => {
 
   return (
     <Container fluid style={gradientBackground}>
-      {/* Keep the border elements */}
       <div style={{ ...cornerBorderStyle, ...topLeftBorder }}></div>
       <div style={{ ...cornerBorderStyle, ...bottomRightBorder }}></div>
 
-      {/* Resume Link in the center */}
       <div style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)' }}>
         <a
-          href={resume} // Update this with your actual resume path
+          href={resume}
           download
           style={resumeStyle}
-          onMouseEnter={() => setHoveredResume(true)} // Set hover state on enter
-          onMouseLeave={() => setHoveredResume(false)} // Reset hover state on leave
+          onMouseEnter={() => setHoveredResume(true)}
+          onMouseLeave={() => setHoveredResume(false)}
         >
           <FaDownload style={{ marginRight: '0.5rem' }} />
           Resume
         </a>
       </div>
 
-      {/* Main content, centrally aligned */}
       <Row className="w-100 justify-content-center">
-        <Col md={8}>
+        <Col xs={12} md={8}>
           <section>
             <p style={{marginTop: '3%'}}>Hi! I'm</p>
             <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
               A passionate software developer with an interest in front end development, service software and game design. Here's some projects I've been working on.
             </p>
-            {/* Profile Picture */}
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
           </section>
         </Col>
       </Row>
 
-      {/* Project Cards in a 2x2 Grid */}
       <Row className="w-100 justify-content-center">
         {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!'].map((project, index) => (
-          <Col sm={6} md={6} lg={4} key={index} className="mb-4">
-            {/* Use a clickable Card component */}
+          <Col xs={12} sm={6} md={4} lg={3} key={index} className="mb-4">
             <Card
-              as={Link}  // This is key: it makes the entire Card behave as a Link
+              as={Link}
               to={`/project${index + 1}`}
               style={cardStyle(hoveredItem === index)}
               onMouseEnter={() => setHoveredItem(index)}
               onMouseLeave={() => setHoveredItem(null)}
-              className="h-100 text-decoration-none text-light"  // Ensures the text styling is correct for Links
+              className="h-100 text-decoration-none text-light"
             >
               <Card.Body>
                 <Card.Title>{project}</Card.Title>
@@ -152,7 +145,6 @@ const Home = () => {
         ))}
       </Row>
 
-      {/* Icons Section */}
       <div style={{ position: 'absolute', top: '2%', right: '2%' }}>
         <a
           href="https://github.com/ChristopherFiore"
