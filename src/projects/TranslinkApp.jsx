@@ -49,7 +49,7 @@ const TranslinkApp = () => {
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
       {/* Back Button */}
-      <Link to={'/'}
+      <Link to={'/PersonalWebsite'}
         style={backButtonStyle}
         onMouseEnter={() => setIsHovered(true)} // Handle hover in
         onMouseLeave={() => setIsHovered(false)} // Handle hover out

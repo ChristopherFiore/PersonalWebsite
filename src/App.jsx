@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/PersonalWebsite" element={<Home />} />
         <Route path="/project1" element={<TranslinkApp />} />
         <Route path="/project2" element={<VoxelEngine />} />
         <Route path="/project3" element={<ComputerRetail />} />
