@@ -20,7 +20,7 @@ const Home = () => {
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    padding: '40px 20px', // Added horizontal padding
+    padding: '40px 20px',
   };
 
   const welcomeTextStyle = {
@@ -34,20 +34,23 @@ const Home = () => {
   };
 
   const profilePicStyle = {
-    width: '250px', // Adjust size for responsiveness
+    width: '250px',
     height: '250px', 
     borderRadius: '50%',
     objectFit: 'cover',
     marginBottom: '25px',
+    boxShadow: '0 2px 10px rgba(255, 255, 255, 0.15)', // Subtle shadow
+    border: '2px solid white', // Outline
   };
 
   const cardStyle = (isHovered) => ({
     backgroundColor: '#1c1c1c',
-    borderColor: '#555',
     fontSize: '1.25rem',
     color: '#f8f9fa',
-    transition: 'transform 0.3s, background-color 0.3s',
+    transition: 'transform 0.3s, background-color 0.3s, box-shadow 0.3s',
     transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+    boxShadow: isHovered ? '0 4px 15px rgba(255, 255, 255, 0.2)' : '0 2px 5px rgba(255, 255, 255, 0.1)', // Toned down shadow
+    border: '2px solid white', // Outline for cards
     cursor: 'pointer',
   });
 
@@ -60,64 +63,49 @@ const Home = () => {
     cursor: 'pointer',
   });
 
-  const resumeStyle = {
-    color: 'lightgrey',
-    fontSize: '1.5rem', // Adjusted for better responsiveness
-    display: 'flex',
-    alignItems: 'center',
-    marginRight: '1rem',
-    transition: 'transform 0.3s, color 0.3s',
-    textDecoration: 'none',
-    transform: hoveredResume ? 'scale(1.1)' : 'scale(1)', 
-  };
-
-  const cornerBorderStyle = {
+  const navStyle = {
     position: 'absolute',
-    borderStyle: 'solid',
-    zIndex: 10,
+    top: '20px',
+    left: '20px',
+    color: 'white',
+    fontSize: '1.25rem',
+    display: 'flex',
+    gap: '15px',
   };
 
-  const topLeftBorder = {
-    top: 0,
-    left: 0,
-    width: '140px',
-    height: '140px',
-    borderWidth: '15px 0 0 15px',
-  };
-
-  const bottomRightBorder = {
-    bottom: 0,
-    right: 0,
-    width: '120px',
-    height: '120px',
-    borderWidth: '0 15px 15px 0',
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    position: 'relative',
+    transition: 'color 0.3s',
   };
 
   return (
     <Container fluid style={gradientBackground}>
-      <div style={{ ...cornerBorderStyle, ...topLeftBorder }}></div>
-      <div style={{ ...cornerBorderStyle, ...bottomRightBorder }}></div>
-
-      <div style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+      <div style={navStyle}>
+        <Link to="/PersonalWebsite" style={linkStyle}>Home</Link>
+        <span>/</span>
         <a
           href={resume}
           download
-          style={resumeStyle}
+          style={linkStyle}
           onMouseEnter={() => setHoveredResume(true)}
           onMouseLeave={() => setHoveredResume(false)}
         >
           <FaDownload style={{ marginRight: '0.5rem' }} />
           Resume
         </a>
+        <span>/</span>
+        <Link to="/contact" style={linkStyle}>Contact me</Link>
       </div>
 
       <Row className="w-100 justify-content-center">
         <Col xs={12} md={8}>
           <section>
-            <p style={{marginTop: '3%'}}>Hi! I'm</p>
+            <p style={{ marginTop: '3%' }}>Hi! I'm</p>
             <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
-              A passionate software developer with an interest in front end development, service software and game design. Here's some projects I've been working on.
+              A passionate software developer with an interest in front end development, service software, and game design. Here's some projects I've been working on.
             </p>
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
           </section>

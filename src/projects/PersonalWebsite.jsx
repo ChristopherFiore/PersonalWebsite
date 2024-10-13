@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 import websiteImage from '../assets/personalWebsite.png';
+import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
+import resume from '../assets/ChristopherFioreResume.pdf';
 
 const PersonalWebsite = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -32,49 +34,67 @@ const PersonalWebsite = () => {
     backgroundColor: '#333333',
   };
 
-  const backButtonStyle = {
-    fontSize: '6rem',
-    fontWeight: 'bold',
+  const navStyle = {
     position: 'absolute',
-    top: '3%',
-    left: '3%',
-    cursor: 'pointer',
-    color: isHovered ? '#ff5722' : 'white', // Change color on hover
-    textDecoration: 'none',
-    transform: isHovered ? 'scale(1.2)' : 'scale(1)', // Scale effect on hover
-    transformOrigin: 'top left', // Ensure scaling occurs from the top-left corner
-    transition: 'transform 0.3s, color 0.3s', // Smooth transition
+    top: '20px',
+    left: '20px',
+    color: 'white',
+    fontSize: '1.25rem',
+    display: 'flex',
+    gap: '15px',
   };
+
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    position: 'relative',
+    transition: 'color 0.3s',
+  };
+
+  const iconStyle = (isHovered) => ({
+    color: isHovered ? '#e0e0e0' : 'lightgrey',
+    fontSize: '2rem',
+    marginLeft: '1rem',
+    transition: 'transform 0.3s, color 0.3s',
+    transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+    cursor: 'pointer',
+  });
 
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
-      {/* Back Button */}
-      <Link
-        to="/PersonalWebsite"
-        style={backButtonStyle}
-        onMouseEnter={() => setIsHovered(true)} // Handle hover in
-        onMouseLeave={() => setIsHovered(false)} // Handle hover out
-      >
-        &larr;
-      </Link>
+
+      <div style={navStyle}>
+        <Link to="/PersonalWebsite" style={linkStyle}>Home</Link>
+        <span>/</span>
+        <a
+          href={resume}
+          download
+          style={linkStyle}
+        >
+          <FaDownload style={{ marginRight: '0.5rem' }} />
+          Resume
+        </a>
+        <span>/</span>
+        <Link to="/contact" style={linkStyle}>Contact me</Link>
+      </div>
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
           <h1 style={titleStyle}>Personal Website</h1>
           <p style={descriptionStyle}>
             Welcome to the website you are currently using! Here you'll find information about my projects, skills, and experiences.
-            I created this portfolio website of my work to show off my front end development skills and also as a way for people and employers
+            I created this portfolio website to showcase my front-end development skills and provide a way for people and employers
             to engage with my work and talents.
           </p>
         </Col>
       </Row>
 
       <Row className="text-center mb-4">
-          <Col>
-              <div style={windowStyle}>
-                  <img src={websiteImage} alt="Personal Website Preview" width="100%" />
-              </div>
-          </Col>
+        <Col>
+          <div style={windowStyle}>
+            <img src={websiteImage} alt="Personal Website Preview" width="100%" />
+          </div>
+        </Col>
       </Row>
 
       <Row className="text-center">
@@ -94,6 +114,29 @@ const PersonalWebsite = () => {
           <p>React, Node.js, JavaScript</p>
         </Col>
       </Row>
+
+      <div style={{ position: 'absolute', top: '2vh', right: '2vw' }}>
+        <a
+          href="https://github.com/ChristopherFiore"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'github')}
+          onMouseEnter={() => setHoveredIcon('github')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/christopher-fiore-8b64702b5/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'linkedin')}
+          onMouseEnter={() => setHoveredIcon('linkedin')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaLinkedin />
+        </a>
+      </div>
     </Container>
   );
 };

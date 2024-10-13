@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import computerRetailVideo from '../assets/retailComputerVideo.mp4';
+import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
+import resume from '../assets/ChristopherFioreResume.pdf';
 
 const ComputerRetail = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -22,11 +24,6 @@ const ComputerRetail = () => {
     fontSize: '1.5rem',
   };
 
-  const linkStyle = {
-    color: '#007bff', // Bootstrap's default link color
-    textDecoration: 'underline',
-  };
-
   const windowStyle = {
     border: '2px solid #ffffff',
     borderRadius: '15px',
@@ -37,37 +34,55 @@ const ComputerRetail = () => {
     backgroundColor: '#333333',
   };
 
-  const backButtonStyle = {
-    fontSize: '6rem',
-    fontWeight: 'bold',
+  const navStyle = {
     position: 'absolute',
-    top: '3%',
-    left: '3%',
-    cursor: 'pointer',
-    color: isHovered ? '#ff5722' : 'white',
-    textDecoration: 'none',
-    transform: isHovered ? 'scale(1.2)' : 'scale(1)',
-    transformOrigin: 'top left',
-    transition: 'transform 0.3s, color 0.3s',
+    top: '20px',
+    left: '20px',
+    color: 'white',
+    fontSize: '1.25rem',
+    display: 'flex',
+    gap: '15px',
   };
+
+  const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+    position: 'relative',
+    transition: 'color 0.3s',
+  };
+
+  const iconStyle = (isHovered) => ({
+    color: isHovered ? '#e0e0e0' : 'lightgrey',
+    fontSize: '2rem',
+    marginLeft: '1rem',
+    transition: 'transform 0.3s, color 0.3s',
+    transform: isHovered ? 'scale(1.2)' : 'scale(1)',
+    cursor: 'pointer',
+  });
 
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
-      {/* Back Button */}
-      <Link
-        to="/PersonalWebsite"
-        style={backButtonStyle}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        &larr;
-      </Link>
+
+      <div style={navStyle}>
+        <Link to="/PersonalWebsite" style={linkStyle}>Home</Link>
+        <span>/</span>
+        <a
+          href={resume}
+          download
+          style={linkStyle}
+        >
+          <FaDownload style={{ marginRight: '0.5rem' }} />
+          Resume
+        </a>
+        <span>/</span>
+        <Link to="/contact" style={linkStyle}>Contact me</Link>
+      </div>
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
           <h1 style={titleStyle}>Computer Retail Website</h1>
           <p style={descriptionStyle}>
-            Welcome to my creation of a retail computer website! Through my personal interest of computers and my professional experience
+            Welcome to my creation of a retail computer website! Through my personal interest in computers and my professional experience
             of creating websites, I decided to make my own computer retail website. Feel free to navigate to my{' '}
             <a href="https://github.com/ChristopherFiore/RetailComputerWebsite" target="_blank" rel="noopener noreferrer" style={linkStyle}>
               GitHub
@@ -94,8 +109,8 @@ const ComputerRetail = () => {
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             <li>Smooth and responsive navigation</li>
             <li>User-friendly interface</li>
-            <li>Javascript functionality for forms and adding items to cart</li>
-            <li>Repsonsiveness through various HTML and CSS features. </li>
+            <li>JavaScript functionality for forms and adding items to cart</li>
+            <li>Responsiveness through various HTML and CSS features.</li>
           </ul>
         </Col>
       </Row>
@@ -106,6 +121,29 @@ const ComputerRetail = () => {
           <p>JavaScript, HTML, CSS</p>
         </Col>
       </Row>
+
+      <div style={{ position: 'absolute', top: '2vh', right: '2vw' }}>
+        <a
+          href="https://github.com/ChristopherFiore"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'github')}
+          onMouseEnter={() => setHoveredIcon('github')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/christopher-fiore-8b64702b5/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={iconStyle(hoveredIcon === 'linkedin')}
+          onMouseEnter={() => setHoveredIcon('linkedin')}
+          onMouseLeave={() => setHoveredIcon(null)}
+        >
+          <FaLinkedin />
+        </a>
+      </div>
     </Container>
   );
 };

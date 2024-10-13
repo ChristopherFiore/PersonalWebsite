@@ -11,6 +11,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/PersonalWebsite" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
+
         <Route path="/project1" element={<TranslinkApp />} />
         <Route path="/project2" element={<VoxelEngine />} />
         <Route path="/project3" element={<ComputerRetail />} />
