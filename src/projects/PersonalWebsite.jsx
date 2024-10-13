@@ -60,6 +60,13 @@ const PersonalWebsite = () => {
     cursor: 'pointer',
   });
 
+  // Histogram data
+  const technologies = [
+    { name: 'React', level: 85 },
+    { name: 'Node.js', level: 70 },
+    { name: 'JavaScript', level: 90 },
+  ];
+
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
 
@@ -86,6 +93,26 @@ const PersonalWebsite = () => {
             I created this portfolio website to showcase my front-end development skills and provide a way for people and employers
             to engage with my work and talents.
           </p>
+        </Col>
+      </Row>
+
+      {/* Histogram Section */}
+      <Row className="text-center mb-4">
+        <Col>
+          <h2>Technology Usage</h2>
+          {technologies.map((tech) => (
+            <div key={tech.name} style={{ margin: '5px 0', textAlign: 'left' }}>
+              <span style={{ marginRight: '10px' }}>{tech.name}</span>
+              <div style={{
+                backgroundColor: '#007bff',
+                height: '25px',
+                borderRadius: '5px',
+                width: `${tech.level}%`,
+                transition: 'width 0.3s',
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+              }} />
+            </div>
+          ))}
         </Col>
       </Row>
 

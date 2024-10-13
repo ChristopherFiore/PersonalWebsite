@@ -7,6 +7,7 @@ import resume from '../assets/ChristopherFioreResume.pdf';
 
 const ComputerRetail = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [isGithubHovered, setIsGithubHovered] = useState(false);
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -51,6 +52,12 @@ const ComputerRetail = () => {
     transition: 'color 0.3s',
   };
 
+  const githubLinkStyle = {
+    color: isGithubHovered ? '#0056b3' : '#007bff',
+    textDecoration: isGithubHovered ? 'underline' : 'none',
+    transition: 'color 0.3s, text-decoration 0.3s',
+  };
+
   const iconStyle = (isHovered) => ({
     color: isHovered ? '#e0e0e0' : 'lightgrey',
     fontSize: '2rem',
@@ -59,6 +66,13 @@ const ComputerRetail = () => {
     transform: isHovered ? 'scale(1.2)' : 'scale(1)',
     cursor: 'pointer',
   });
+
+  // Histogram data
+  const technologies = [
+    { name: 'JavaScript', level: 20 },
+    { name: 'HTML', level: 85 },
+    { name: 'CSS', level: 70 },
+  ];
 
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
@@ -84,11 +98,38 @@ const ComputerRetail = () => {
           <p style={descriptionStyle}>
             Welcome to my creation of a retail computer website! Through my personal interest in computers and my professional experience
             of creating websites, I decided to make my own computer retail website. Feel free to navigate to my{' '}
-            <a href="https://github.com/ChristopherFiore/RetailComputerWebsite" target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            <a
+              href="https://github.com/ChristopherFiore/RetailComputerWebsite"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={githubLinkStyle}
+              onMouseEnter={() => setIsGithubHovered(true)}
+              onMouseLeave={() => setIsGithubHovered(false)}
+            >
               GitHub
             </a>{' '}
             for a look at the source code.
           </p>
+        </Col>
+      </Row>
+
+      {/* Histogram Section */}
+      <Row className="text-center mb-4">
+        <Col>
+          <h2>Technology Usage</h2>
+          {technologies.map((tech) => (
+            <div key={tech.name} style={{ margin: '5px 0', textAlign: 'left' }}>
+              <span style={{ marginRight: '10px' }}>{tech.name}</span>
+              <div style={{
+                backgroundColor: '#007bff',
+                height: '25px',
+                borderRadius: '5px',
+                width: `${tech.level}%`,
+                transition: 'width 0.3s',
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+              }} />
+            </div>
+          ))}
         </Col>
       </Row>
 
