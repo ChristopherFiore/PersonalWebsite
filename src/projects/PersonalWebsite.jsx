@@ -63,6 +63,7 @@ const PersonalWebsite = () => {
   // Histogram data
   const technologies = [
     { name: 'React', level: 85 },
+    { name: 'Bootstrap', level: 60 },
     { name: 'Node.js', level: 70 },
     { name: 'JavaScript', level: 90 },
   ];
@@ -138,7 +139,7 @@ const PersonalWebsite = () => {
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>React, Node.js, JavaScript</p>
+          <p>React, Bootstrap, Node.js, JavaScript</p>
         </Col>
       </Row>
 
