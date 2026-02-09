@@ -4,6 +4,7 @@ import TranslinkApp from './projects/TranslinkApp'
 import PersonalWebsite from './projects/PersonalWebsite.jsx'
 import ComputerRetail from './projects/ComputerRetail.jsx';
 import VoxelEngine from './projects/VoxelEngine.jsx';
+import Artistry from './projects/Artistry.jsx';
 
 function App() {
     
@@ -17,6 +18,7 @@ function App() {
         <Route path="/project2" element={<VoxelEngine />} />
         <Route path="/project3" element={<ComputerRetail />} />
         <Route path="/project4" element={<PersonalWebsite />} />
+        <Route path="/project5" element={<Artistry />} />
       </Routes>
     </Router>
   )

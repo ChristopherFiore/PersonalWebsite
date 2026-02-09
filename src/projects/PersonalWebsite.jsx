@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import websiteImage from '../assets/personalWebsite.png';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
-import resume from '../assets/ChristopherFioreResume.pdf';
+import resume from '../assets/ChristopherFioreResume2026.pdf';
 
 const PersonalWebsite = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
@@ -82,8 +82,6 @@ const PersonalWebsite = () => {
           <FaDownload style={{ marginRight: '0.5rem' }} />
           Resume
         </a>
-        <span>/</span>
-        <Link to="/contact" style={linkStyle}>Contact me</Link>
       </div>
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>

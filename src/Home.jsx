@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
 import profilePic from './assets/profilePic.jpg'; 
-import resume from './assets/ChristopherFioreResume.pdf';
+import resume from './assets/ChristopherFioreResume2026.pdf';
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -95,8 +95,6 @@ const Home = () => {
           <FaDownload style={{ marginRight: '0.5rem' }} />
           Resume
         </a>
-        <span>/</span>
-        <Link to="/contact" style={linkStyle}>Contact me</Link>
       </div>
 
       <Row className="w-100 justify-content-center">
@@ -105,7 +103,7 @@ const Home = () => {
             <p style={{ marginTop: '3%' }}>Hi! I'm</p>
             <h1 style={welcomeTextStyle}>Christopher Fiore</h1>
             <p style={paragraphStyle}>
-              A passionate software developer with an interest in front end development, service software, and game design. Here's some projects I've been working on.
+              Passionate Junior Software Developer with over a year of professional experience in full-stack and backend development, API integrations, and database-driven systems. I build and maintain production-ready applications and enjoy creating projects that solve real-world problems.
             </p>
             <img src={profilePic} alt="Christopher Fiore" style={profilePicStyle} />
           </section>
@@ -113,7 +111,7 @@ const Home = () => {
       </Row>
 
       <Row className="w-100 justify-content-center">
-        {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!'].map((project, index) => (
+        {['TransLink Live Service Tool', 'Python 3D Voxel Engine', 'Computer Retail Website', 'This Website!', 'Artist.ry'].map((project, index) => (
           <Col xs={12} sm={6} md={4} lg={3} key={index} className="mb-4">
             <Card
               as={Link}

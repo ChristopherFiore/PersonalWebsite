@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import voxelVideo from '../assets/voxelEngineVideo.mp4';
+import ArtistryVideo from '../assets/artistryVideo.mp4';
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
 import resume from '../assets/ChristopherFioreResume2026.pdf';
 
-const VoxelEngine = () => {
+const Artistry = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
-  const [isGithubHovered, setIsGithubHovered] = useState(false);
 
   const gradientBackground = {
     background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)',
@@ -52,12 +51,6 @@ const VoxelEngine = () => {
     transition: 'color 0.3s',
   };
 
-  const githubLinkStyle = {
-    color: isGithubHovered ? '#0056b3' : '#007bff',
-    textDecoration: isGithubHovered ? 'underline' : 'none',
-    transition: 'color 0.3s, text-decoration 0.3s',
-  };
-
   const iconStyle = (isHovered) => ({
     color: isHovered ? '#e0e0e0' : 'lightgrey',
     fontSize: '2rem',
@@ -69,15 +62,15 @@ const VoxelEngine = () => {
 
   // Histogram data
   const technologies = [
-    { name: 'Python', level: 90 },
-    { name: 'OpenGL', level: 20 },
-    { name: 'Pygame', level: 10 },
-    { name: 'Numpy', level: 15 },
+    { name: 'React Native', level: 90 },
+    { name: 'Go', level: 80 },
+    { name: 'CSS', level: 60 },
+    { name: 'JavaScript', level: 60 },
   ];
 
   return (
     <Container fluid style={gradientBackground} className="d-flex flex-column justify-content-center align-items-center p-3">
-      
+
       <div style={navStyle}>
         <Link to="/PersonalWebsite" style={linkStyle}>Home</Link>
         <span>/</span>
@@ -93,20 +86,9 @@ const VoxelEngine = () => {
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
         <Col>
-          <h1 style={titleStyle}>Python 3D Voxel Engine</h1>
+          <h1 style={titleStyle}>Artist.ry</h1>
           <p style={descriptionStyle}>
-            Through my interest in how low-level 3D graphics are constructed, I made a 3D Python voxel engine.
-            Feel free to check out the source code on{' '}
-            <a
-              href="https://github.com/ChristopherFiore/PythonVoxelEngine"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={githubLinkStyle}
-              onMouseEnter={() => setIsGithubHovered(true)}
-              onMouseLeave={() => setIsGithubHovered(false)}
-            >
-              GitHub
-            </a>{'.'}
+            A social hub for artists and creatives to connect, collaborate, and discover exciting events happening in their local creative scene. 
           </p>
         </Col>
       </Row>
@@ -134,29 +116,28 @@ const VoxelEngine = () => {
       <Row className="text-center mb-4">
         <Col>
           <div style={windowStyle}>
-            <video width="100%" autoPlay loop muted>
-              <source src={voxelVideo} type="video/mp4" />
+            <video width="50%" autoPlay loop muted>
+              <source src={ArtistryVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
         </Col>
-      </Row>
+      </Row> 
 
       <Row className="text-center">
         <Col>
-          <h2>Features</h2>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li>Rendering Techniques</li>
-            <li>Coloured Voxels with static lighting</li>
-            <li>Explorable environment</li>
-          </ul>
+         <h2>Features</h2>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <li>Live map updates with real-time event discovery</li>
+            <li>Secure user authentication and account management</li>
+         </ul>
         </Col>
       </Row>
 
       <Row className="text-center">
         <Col>
           <h2>Technology Stack</h2>
-          <p>Python, OpenGL, Pygame, Numpy</p>
+          <p>React Native, Go, CSS, JavaScript</p>
         </Col>
       </Row>
 
@@ -186,4 +167,4 @@ const VoxelEngine = () => {
   );
 };
 
-export default VoxelEngine;
+export default Artistry;

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import translinkVideo from "../assets/translinkVideo.mp4";
 import { FaGithub, FaLinkedin, FaDownload } from 'react-icons/fa'; 
-import resume from '../assets/ChristopherFioreResume.pdf';
+import resume from '../assets/ChristopherFioreResume2026.pdf';
 
 const TranslinkApp = () => {
   const [hoveredIcon, setHoveredIcon] = useState(null);
@@ -80,8 +80,6 @@ const TranslinkApp = () => {
           <FaDownload style={{ marginRight: '0.5rem' }} />
           Resume
         </a>
-        <span>/</span>
-        <Link to="/contact" style={linkStyle}>Contact me</Link>
       </div>
 
       <Row className="text-center mb-4" style={{ marginTop: '5%' }}>
